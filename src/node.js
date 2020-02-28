@@ -1,5 +1,3 @@
-'use strict';
-
 import { randomBytes } from 'crypto';
 
 var SIZE=4096, HEX=[], IDX=0, BUFFER;

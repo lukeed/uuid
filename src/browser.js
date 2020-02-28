@@ -1,5 +1,3 @@
-'use strict';
-
 var SIZE=4096, HEX=[], IDX=0, BUFFER;
 
 for (var i=0; i < 256; i++) {
