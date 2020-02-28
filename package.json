@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "name": "@lukeed/uuid",
+  "repository": "lukeed/uuid",
+  "description": "WIP",
+  "browser": "dist/index.esm.js",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
+  "types": "geoid.d.ts",
+  "umd:name": "uuid",
+  "license": "MIT",
+  "author": {
+    "name": "Luke Edwards",
+    "email": "luke.edwards05@gmail.com",
+    "url": "https://lukeed.com"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "node bin",
+    "pretest": "npm run build",
+    "test": "tape -r esm test/*.js | tap-spec"
+  },
+  "files": [
+    "*.d.ts",
+    "dist"
+  ],
+  "keywords": [],
+  "devDependencies": {
+    "bundt": "^1.0.0",
+    "esm": "^3.2.0",
+    "premove": "^1.0.0",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1"
+  }
+}
