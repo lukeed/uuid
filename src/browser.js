@@ -3,13 +3,13 @@
 var SIZE=4096, HEX=[], IDX=0, BUFFER;
 
 for (var i=0; i < 256; i++) {
-	HEX[i] = (i + 0x100).toString(16).substr(1);
+	HEX[i] = (i + 256).toString(16).substring(1);
 }
 
 function bounds() {
 	var b = slice(16);
-	b[6] = (b[6] & 0x0f) | 0x40;
-	b[8] = (b[8] & 0x3f) | 0x80;
+	b[6] = (b[6] & 15) | 64;
+	b[8] = (b[8] & 63) | 128;
 	return b;
 }
 
