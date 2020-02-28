@@ -30,10 +30,11 @@
   ],
   "keywords": [],
   "devDependencies": {
-    "bundt": "^1.0.0",
-    "esm": "^3.2.0",
-    "premove": "^1.0.0",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1"
+    "bundt": "1.0.0",
+    "esm": "3.2.25",
+    "is-uuid": "1.0.2",
+    "premove": "1.0.0",
+    "tap-spec": "5.0.0",
+    "tape": "4.13.0"
   }
 }
