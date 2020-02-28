@@ -8,7 +8,7 @@
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "types": "geoid.d.ts",
+  "types": "uuid.d.ts",
   "umd:name": "uuid",
   "license": "MIT",
   "author": {
