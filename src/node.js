@@ -8,27 +8,19 @@ for (var i=0; i < 256; i++) {
 	HEX[i] = (i + 256).toString(16).substring(1);
 }
 
-function bounds() {
-	var b = slice(16);
-	b[6] = (b[6] & 15) | 64;
-	b[8] = (b[8] & 63) | 128;
-	return b;
-}
-
-function slice(size) {
-	if (!BUFFER || ((IDX + size) > SIZE)) {
+export default function () {
+	if (!BUFFER || ((IDX + 16) > SIZE)) {
 		BUFFER = randomBytes(SIZE);
 		IDX = 0;
 	}
-	return BUFFER.slice(IDX, IDX += size);
-}
 
-export default function () {
-	var i=0, out='', arr=bounds();
-	for (; i < 4; i++) out+=HEX[arr[i]];
-	for (out+='-'; i < 6; i++) out+=HEX[arr[i]];
-	for (out+='-'; i < 8; i++) out+=HEX[arr[i]];
-	for (out+='-'; i < 10; i++) out+=HEX[arr[i]];
-	for (out+='-'; i < 16; i++) out+=HEX[arr[i]];
-	return out;
+	var arr = BUFFER.slice(IDX, IDX += 16);
+
+	return (
+		HEX[arr[0]] + HEX[arr[1]] + HEX[arr[2]] + HEX[arr[3]]
+		+ '-' + HEX[arr[4]] + HEX[arr[5]]
+		+ '-' + HEX[arr[6] & 15 | 64] + HEX[arr[7]]
+		+ '-' + HEX[arr[8] & 63 | 128] + HEX[arr[9]]
+		+ '-' + HEX[arr[10]] + HEX[arr[11]] + HEX[arr[12]] + HEX[arr[13]] + HEX[arr[14]] + HEX[arr[15]]
+	);
 }
