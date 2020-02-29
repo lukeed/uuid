@@ -12,7 +12,7 @@ It is available in [ESM](https://unpkg.com/@lukeed/uuid/dist/index.mjs) and [Com
 
 The browser module (253B) works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
 
-It is available in [UMD](https://unpkg.com/@lukeed/uuid) (under the `uuid` global) and [ESM](https://unpkg.com/@lukeed/uuid/dist/index.esm.js) formats. Any Rollup and webpack configuration configured for the browser will select the correct file.
+It is available in [UMD](https://unpkg.com/@lukeed/uuid) (under the `uuid` global) and [ESM](https://unpkg.com/@lukeed/uuid/dist/index.esm.js) formats. Any Rollup and webpack browser-configuration will select the correct file.
 
 
 ## Install
@@ -63,10 +63,10 @@ Benchmark:
 
 The reason why this UUID.V4 implementation is so much faster is two-fold:
 
-1) It composes an output with hexadecimal pairs (from a cached list) instead of a single character at a time.
-2) It allocates a larger Buffer/ArrayBuffer up front (expensive) and slices off 16-byte chunks as needed (cheap).
+1) It composes an output with hexadecimal pairs (from a cached dictionary) instead of single characters.
+2) It allocates a larger Buffer/ArrayBuffer up front (expensive) and slices off chunks as needed (cheap).
 
-The internal ArrayBuffer is 4096 bytes, which is supplies **256** `uuid()` invocations.<br>A larger buffer would result in higher performance over time, but I found this to be a good balance of performance and memory space.
+The internal ArrayBuffer is 4096 bytes, which supplies **256** `uuid()` invocations.<br>A larger buffer would result in higher performance over time, but I found this to be a good balance of performance and memory space.
 
 ## License
 
