@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "name": "@lukeed/uuid",
   "repository": "lukeed/uuid",
-  "description": "WIP",
+  "description": "A tiny (250B), fast, and cryptographically secure UUID (v4) generator for Node and the browser",
   "browser": "dist/index.esm.js",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
@@ -28,7 +28,15 @@
     "*.d.ts",
     "dist"
   ],
-  "keywords": [],
+  "keywords": [
+    "guid",
+    "browser",
+    "isomorphic",
+    "rfc4122",
+    "random",
+    "uuid",
+    "uid"
+  ],
   "devDependencies": {
     "bundt": "1.0.0",
     "esm": "3.2.25",
