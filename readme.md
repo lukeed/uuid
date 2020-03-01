@@ -53,10 +53,10 @@ Validation:
   ✔ @lukeed/uuid
 
 Benchmark:
-  String.replace(Math.random)  x    398,457 ops/sec ±1.05% (93 runs sampled)
-  String.replace(crypto)       x     13,871 ops/sec ±1.26% (86 runs sampled)
-  uuid/v4                      x    334,315 ops/sec ±0.63% (90 runs sampled)
-  @lukeed/uuid                 x  2,364,706 ops/sec ±0.29% (94 runs sampled)
+  String.replace(Math.random)  x    408,120 ops/sec ±0.60% (94 runs sampled)
+  String.replace(crypto)       x     13,888 ops/sec ±1.34% (87 runs sampled)
+  uuid/v4                      x    327,221 ops/sec ±0.81% (90 runs sampled)
+  @lukeed/uuid                 x  6,069,155 ops/sec ±0.44% (93 runs sampled)
 ```
 
 ## Performance
