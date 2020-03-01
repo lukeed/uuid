@@ -34,7 +34,7 @@ test('(browser) unique', t => {
 });
 
 test('(browser) validate', t => {
-	let arr = Array.from({ length: 100 }, uuid);
+	let arr = Array.from({ length: 1e3 }, uuid);
 	t.true(arr.every(isUUID.v4));
 	t.end();
 });
