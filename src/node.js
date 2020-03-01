@@ -12,13 +12,15 @@ export default function () {
 		IDX = 0;
 	}
 
-	var arr = BUFFER.slice(IDX, IDX += 16);
+	var i=0, tmp, out='';
+	for (; i < 16; i++) {
+		tmp = BUFFER[IDX++];
+		if (i==6) out += HEX[tmp & 15 | 64];
+		else if (i==8) out += HEX[tmp & 63 | 128];
+		else out += HEX[tmp];
 
-	return (
-		HEX[arr[0]] + HEX[arr[1]] + HEX[arr[2]] + HEX[arr[3]]
-		+ '-' + HEX[arr[4]] + HEX[arr[5]]
-		+ '-' + HEX[arr[6] & 15 | 64] + HEX[arr[7]]
-		+ '-' + HEX[arr[8] & 63 | 128] + HEX[arr[9]]
-		+ '-' + HEX[arr[10]] + HEX[arr[11]] + HEX[arr[12]] + HEX[arr[13]] + HEX[arr[14]] + HEX[arr[15]]
-	);
+		if (i & 1 && i > 1 && i < 11) out += '-';
+	}
+
+	return out;
 }
