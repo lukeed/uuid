@@ -2,8 +2,8 @@ import { randomBytes } from 'crypto';
 
 var SIZE=4096, HEX=[], IDX=0, BUFFER;
 
-for (var i=0; i < 256; i++) {
-	HEX[i] = (i + 256).toString(16).substring(1);
+for (; IDX < 256; IDX++) {
+	HEX[IDX] = (IDX + 256).toString(16).substring(1);
 }
 
 export default function () {
