@@ -1,16 +1,16 @@
 # @lukeed/uuid [![build status](https://badgen.net/github/status/lukeed/uuid)](https://github.com/lukeed/uuid/actions) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uuid)](https://codecov.io/gh/lukeed/uuid)
 
-> A tiny (250B), [fast](#benchmarks), and cryptographically secure UUID (v4) generator for Node and the browser
+> A tiny (230B), [fast](#benchmarks), and cryptographically secure UUID (v4) generator for Node and the browser
 
 ***Node.js***
 
-The Node.js module (246B) works in [all versions](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback) of Node.js.
+The Node.js module (235B) works in [all versions](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback) of Node.js.
 
 It is available in [ESM](https://unpkg.com/@lukeed/uuid/dist/index.mjs) and [CommonJS](https://unpkg.com/@lukeed/uuid/dist/index.js) formats, which means that both `import` and `require` syntax are supported.
 
 ***Browser***
 
-The browser module (253B) works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
+The browser module (239B) works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
 
 It is available in [UMD](https://unpkg.com/@lukeed/uuid) (under the `uuid` global) and [ESM](https://unpkg.com/@lukeed/uuid/dist/index.esm.js) formats. Any Rollup and webpack browser-configuration will select the correct file.
 
