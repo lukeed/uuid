@@ -1,9 +1,11 @@
 const { parse } = require('path');
+const { platform } = require('os');
 const { promisify } = require('util');
-const { execFile } = require('child_process');
+const { spawn } = require('child_process');
 const premove = require('premove');
 
-const run = promisify(execFile);
+const isWindows = platform() === "win32";
+const run = promisify(spawn);
 const bundt = require.resolve('bundt');
 
 function capitalize(str) {
@@ -12,7 +14,9 @@ function capitalize(str) {
 
 async function mode(filename, args) {
 	let { name } = parse(filename);
-	let { stdout } = await run(bundt, [filename].concat(args || []));
+	let { stdout } = await run(bundt, [filename].concat(args || []), {
+		shell: isWindows
+	});
 
 	let diff = 8 - name.length;
 	let spacer1 = ' '.repeat(diff < 0 ? 0 : diff);
