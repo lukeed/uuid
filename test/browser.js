@@ -11,6 +11,9 @@ global.crypto = {
 	}
 }
 
+// simulate browser global
+global.window = global;
+
 test('(browser) exports', t => {
 	t.is(typeof uuid, 'function', 'exports function');
 	t.end();
