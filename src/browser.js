@@ -6,7 +6,7 @@ for (; IDX < 256; IDX++) {
 
 export default function () {
 	if (!BUFFER || ((IDX + 16) > SIZE)) {
-		BUFFER = crypto.getRandomValues(new Uint8Array(SIZE));
+		BUFFER = (crypto || msCrypto).getRandomValues(new Uint8Array(SIZE));
 		IDX = 0;
 	}
 
