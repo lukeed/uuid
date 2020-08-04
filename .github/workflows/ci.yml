@@ -15,6 +15,14 @@ jobs:
       with:
         node-version: ${{ matrix.nodejs }}
 
+    - name: (env) cache
+      uses: actions/cache@master
+      with:
+        path: |
+          node_modules
+          */*/node_modules
+        key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
+
     - name: Install
       run: |
         npm install
