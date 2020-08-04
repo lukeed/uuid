@@ -37,10 +37,10 @@
     "uid"
   ],
   "devDependencies": {
-    "bundt": "1.0.0",
+    "bundt": "1.0.1",
     "esm": "3.2.25",
     "is-uuid": "1.0.2",
-    "premove": "1.0.0",
+    "premove": "2.0.1",
     "uvu": "0.3.1"
   }
 }
