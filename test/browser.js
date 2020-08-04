@@ -1,16 +1,7 @@
 import { test } from 'uvu';
 import isUUID from 'is-uuid';
 import * as assert from 'uvu/assert';
-import { randomFillSync } from 'crypto';
 import uuid from '../src/browser';
-
-global.crypto = {
-	getRandomValues(arr) {
-		const buffer = Buffer.from(arr.buffer);
-		randomFillSync(buffer);
-		return arr;
-	}
-}
 
 test('(browser) exports', () => {
 	assert.type(uuid, 'function', 'exports function');
