@@ -15,12 +15,14 @@ jobs:
       with:
         node-version: ${{ matrix.nodejs }}
 
+    # https://github.com/microsoft/playwright/blob/master/docs/ci.md#directories-to-cache
     - name: (env) cache
       uses: actions/cache@master
       with:
         path: |
           node_modules
           */*/node_modules
+          ~/.cache/ms-playwright
         key: ${{ runner.os }}-${{ hashFiles('**/package.json') }}
 
     - name: Install
