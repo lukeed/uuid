@@ -4,7 +4,7 @@ import * as assert from 'uvu/assert';
 import uuid from '../src/browser';
 
 test('exports', () => {
-	assert.type(uuid, 'function', 'exports function');
+	assert.type(uuid, 'function');
 });
 
 test('returns', () => {
