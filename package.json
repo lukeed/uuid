@@ -21,7 +21,7 @@
   "scripts": {
     "build": "node bin",
     "pretest": "npm run build",
-    "test": "tape -r esm test/*.js | tap-spec"
+    "test": "uvu -r esm test"
   },
   "files": [
     "*.d.ts",
@@ -41,7 +41,6 @@
     "esm": "3.2.25",
     "is-uuid": "1.0.2",
     "premove": "1.0.0",
-    "tap-spec": "5.0.0",
-    "tape": "4.13.0"
+    "uvu": "0.3.1"
   }
 }

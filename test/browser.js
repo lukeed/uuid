@@ -1,5 +1,6 @@
-import test from 'tape';
+import { test } from 'uvu';
 import isUUID from 'is-uuid';
+import * as assert from 'uvu/assert';
 import { randomFillSync } from 'crypto';
 import uuid from '../src/browser';
 
@@ -11,30 +12,27 @@ global.crypto = {
 	}
 }
 
-test('(browser) exports', t => {
-	t.is(typeof uuid, 'function', 'exports function');
-	t.end();
+test('(browser) exports', () => {
+	assert.type(uuid, 'function', 'exports function');
 });
 
-test('(browser) returns', t => {
+test('(browser) returns', () => {
 	let out = uuid();
-	t.is(typeof out, 'string', 'returns a string');
-	t.is(out.length, 36, '~> 36 characters long');
-	t.end();
+	assert.type(out, 'string', 'returns a string');
+	assert.is(out.length, 36, '~> 36 characters long');
 });
 
-test('(browser) unique', t => {
-	t.not(uuid(), uuid(), '~> single');
+test('(browser) unique', () => {
+	assert.is.not(uuid(), uuid(), '~> single');
 
 	let items = 1e6;
 	let unique = new Set(Array.from({ length: items }, uuid));
-	t.is(unique.size, items, '~> 1,000,000 uniques');
-
-	t.end();
+	assert.is(unique.size, items, '~> 1,000,000 uniques');
 });
 
-test('(browser) validate', t => {
+test('(browser) validate', () => {
 	let arr = Array.from({ length: 1e3 }, uuid);
-	t.true(arr.every(isUUID.v4));
-	t.end();
+	assert.ok(arr.every(isUUID.v4));
 });
+
+test.run();
