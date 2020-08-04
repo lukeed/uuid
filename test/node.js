@@ -3,17 +3,17 @@ import isUUID from 'is-uuid';
 import * as assert from 'uvu/assert';
 import uuid from '../src/node';
 
-test('(node) exports', () => {
+test('exports', () => {
 	assert.type(uuid, 'function', 'exports function');
 });
 
-test('(node) returns', () => {
+test('returns', () => {
 	let out = uuid();
 	assert.type(out, 'string', 'returns a string');
 	assert.is(out.length, 36, '~> 36 characters long');
 });
 
-test('(node) unique', () => {
+test('unique', () => {
 	assert.is.not(uuid(), uuid(), '~> single');
 
 	let items = 1e6;
@@ -21,7 +21,7 @@ test('(node) unique', () => {
 	assert.is(unique.size, items, '~> 1,000,000 uniques');
 });
 
-test('(node) validate', () => {
+test('validate', () => {
 	let arr = Array.from({ length: 1e3 }, uuid);
 	assert.ok(arr.every(isUUID.v4));
 });
