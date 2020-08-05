@@ -4,6 +4,8 @@ import * as assert from 'uvu/assert';
 import { randomFillSync } from 'crypto';
 import uuid from '../src/browser';
 
+global.msCrypto = undefined;
+
 global.crypto = {
 	getRandomValues(arr) {
 		const buffer = Buffer.from(arr.buffer);
