@@ -3,7 +3,6 @@
   "name": "@lukeed/uuid",
   "repository": "lukeed/uuid",
   "description": "A tiny (230B), fast, and cryptographically secure UUID (v4) generator for Node and the browser",
-  "browser": "dist/index.esm.js",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
