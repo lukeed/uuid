@@ -7,7 +7,7 @@
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "types": "uuid.d.ts",
+  "types": "index.d.ts",
   "umd:name": "uuid",
   "license": "MIT",
   "author": {
@@ -27,6 +27,9 @@
     "*.d.ts",
     "dist"
   ],
+  "modes": {
+    "secure": "src/secure.js"
+  },
   "keywords": [
     "guid",
     "browser",
