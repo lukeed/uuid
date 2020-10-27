@@ -23,10 +23,21 @@
     "pretest": "npm run build",
     "test": "uvu -r esm test"
   },
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./secure": {
+      "import": "./secure/index.mjs",
+      "require": "./secure/index.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
-    "dist",
     "*.d.ts",
-    "math"
+    "secure",
+    "dist"
   ],
   "modes": {
     "secure": "src/secure.js",
