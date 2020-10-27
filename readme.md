@@ -43,7 +43,7 @@ Creates a new Version 4 (random) [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) 
 
 ## Benchmarks
 
-> Running on Node.js v10.13.0
+> Running on Node.js v12.18.4
 
 ```
 Validation:
@@ -51,12 +51,14 @@ Validation:
   ✔ String.replace(crypto)
   ✔ uuid/v4
   ✔ @lukeed/uuid
+  ✔ @lukeed/uuid/secure
 
 Benchmark:
-  String.replace(Math.random)  x    408,120 ops/sec ±0.60% (94 runs sampled)
-  String.replace(crypto)       x     13,888 ops/sec ±1.34% (87 runs sampled)
-  uuid/v4                      x    327,221 ops/sec ±0.81% (90 runs sampled)
-  @lukeed/uuid                 x  6,069,155 ops/sec ±0.44% (93 runs sampled)
+  String.replace(Math.random)  x    381,358 ops/sec ±0.31% (93 runs sampled)
+  String.replace(crypto)       x     15,842 ops/sec ±1.16% (86 runs sampled)
+  uuid/v4                      x  1,259,600 ops/sec ±0.45% (91 runs sampled)
+  @lukeed/uuid                 x  6,384,840 ops/sec ±0.22% (95 runs sampled)
+  @lukeed/uuid/secure          x  5,439,096 ops/sec ±0.23% (98 runs sampled)
 ```
 
 ## Performance

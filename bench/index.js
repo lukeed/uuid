@@ -1,4 +1,4 @@
-const assert = require('assert');
+const assert = require('uvu/assert');
 const { Suite } = require('benchmark');
 const { randomBytes } = require('crypto');
 const isUUID = require('is-uuid');
@@ -22,7 +22,7 @@ const contenders = {
 	'String.replace(crypto)': replace_crypto,
 	'uuid/v4': require('uuid').v4,
 	'@lukeed/uuid': require('../dist'),
-	'@lukeed/uuid/single': require('../math'),
+	'@lukeed/uuid/secure': require('../secure'),
 };
 
 console.log('Validation: ');
@@ -30,8 +30,8 @@ Object.keys(contenders).forEach(name => {
 	try {
 		const lib = contenders[name];
 
-		assert.deepStrictEqual(typeof lib(), 'string', 'returns string');
-		assert.notDeepEqual(lib(), lib(), 'unqiue strings');
+		assert.type(lib(), 'string', 'returns string');
+		assert.is.not(lib(), lib(), 'unqiue strings');
 		assert.ok(isUUID.v4(lib()), 'valid UUID.V4');
 
 		console.log('  ✔', name);
