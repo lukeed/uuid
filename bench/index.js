@@ -22,6 +22,7 @@ const contenders = {
 	'String.replace(crypto)': replace_crypto,
 	'uuid/v4': require('uuid').v4,
 	'@lukeed/uuid': require('../dist'),
+	'@lukeed/uuid/single': require('../math'),
 };
 
 console.log('Validation: ');

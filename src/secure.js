@@ -14,7 +14,7 @@ export default function () {
 
 	var i=0, tmp, out='';
 	for (; i < 16; i++) {
-		tmp = BUFFER[i + IDX];
+		tmp = BUFFER[IDX + i];
 		if (i==6) out += HEX[tmp & 15 | 64];
 		else if (i==8) out += HEX[tmp & 63 | 128];
 		else out += HEX[tmp];
@@ -22,6 +22,6 @@ export default function () {
 		if (i & 1 && i > 1 && i < 11) out += '-';
 	}
 
-	IDX++;
+	IDX += 16;
 	return out;
 }

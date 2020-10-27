@@ -24,11 +24,13 @@
     "test": "uvu -r esm test"
   },
   "files": [
+    "dist",
     "*.d.ts",
-    "dist"
+    "math"
   ],
   "modes": {
-    "secure": "src/secure.js"
+    "secure": "src/secure.js",
+    "default": "src/index.js"
   },
   "keywords": [
     "guid",
