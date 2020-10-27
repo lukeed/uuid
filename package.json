@@ -19,7 +19,7 @@
     "node": ">=8"
   },
   "scripts": {
-    "build": "node bin",
+    "build": "bundt",
     "pretest": "npm run build",
     "test": "uvu -r esm test"
   },
@@ -36,11 +36,13 @@
     "uuid",
     "uid"
   ],
+  "dependencies": {
+    "@lukeed/csprng": "^1.0.0"
+  },
   "devDependencies": {
-    "bundt": "1.0.1",
+    "bundt": "1.1.1",
     "esm": "3.2.25",
     "is-uuid": "1.0.2",
-    "premove": "2.0.1",
-    "uvu": "0.3.1"
+    "uvu": "0.3.4"
   }
 }

@@ -1,3 +1,5 @@
+import { random } from '@lukeed/csprng';
+
 var SIZE=4096, HEX=[], IDX=0, BUFFER;
 
 for (; IDX < 256; IDX++) {
@@ -6,7 +8,7 @@ for (; IDX < 256; IDX++) {
 
 export default function () {
 	if (!BUFFER || ((IDX + 16) > SIZE)) {
-		BUFFER = crypto.getRandomValues(new Uint8Array(SIZE));
+		BUFFER = random(SIZE);
 		IDX = 0;
 	}
 
