@@ -2,7 +2,7 @@
   "version": "1.0.1",
   "name": "@lukeed/uuid",
   "repository": "lukeed/uuid",
-  "description": "A tiny (230B), fast, and cryptographically secure UUID (v4) generator for Node and the browser",
+  "description": "A tiny (230B) and fast UUID (v4) generator for Node and the browser",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
@@ -44,10 +44,14 @@
   },
   "keywords": [
     "guid",
+    "secure",
     "browser",
+    "cryptographic",
     "isomorphic",
     "rfc4122",
     "random",
+    "crypto",
+    "csprng",
     "uuid",
     "uid"
   ],
