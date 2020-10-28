@@ -7,3 +7,5 @@ node_modules
 /dist
 /secure
 /index.d.ts
+
+/bench/**/bundle.js

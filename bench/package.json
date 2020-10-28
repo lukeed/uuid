@@ -1,7 +1,13 @@
 {
   "private": true,
+  "scripts": {
+    "build": "rollup -c"
+  },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "16.0.0",
+    "@rollup/plugin-node-resolve": "10.0.0",
     "benchmark": "2.1.4",
+    "rollup": "2.32.1",
     "uuid": "8.3.1"
   }
 }

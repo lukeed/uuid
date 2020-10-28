@@ -77,6 +77,22 @@ Benchmark:
   @lukeed/uuid/secure          x  5,439,096 ops/sec ±0.23% (98 runs sampled)
 ```
 
+> Running on Chrome v85.0.4183.121
+
+```
+Validation:
+  ✔ String.replace(Math.random)
+  ✔ uuid/v4
+  ✔ @lukeed/uuid
+  ✔ @lukeed/uuid/secure
+
+Benchmark:
+  String.replace(Math.random)  x    313,213 ops/sec ±0.58% (65 runs sampled)
+  uuid/v4                      x    302,914 ops/sec ±0.94% (64 runs sampled)
+  @lukeed/uuid                 x  5,881,761 ops/sec ±1.29% (62 runs sampled)
+  @lukeed/uuid/secure          x    852,939 ops/sec ±0.88% (65 runs sampled)
+```
+
 ## Performance
 
 The reason why this UUID.V4 implementation is so much faster is two-fold:
