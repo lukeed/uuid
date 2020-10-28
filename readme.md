@@ -4,8 +4,8 @@
 
 This module offers two [modes](#modes) for your needs:
 
-* `@lukeed/uuid`<br>_The default is "non-secure", which uses `Math.random` to produce UUIDs._
-* `@lukeed/uuid/secure`<br>_The "secure" mode produces cryptographically secure (CSPRNG) UUIDs using the current environment's `crypto` module._
+* [`@lukeed/uuid`](#lukeeduuid)<br>_The default is "non-secure", which uses `Math.random` to produce UUIDs._
+* [`@lukeed/uuid/secure`](#lukeeduuidsecure)<br>_The "secure" mode produces cryptographically secure (CSPRNG) UUIDs using the current environment's `crypto` module._
 
 > **Important:** <br>Version `1.0.0` only offered a "secure" implementation.<br>In `v2.0.0`, this is now exported as the `"@lukeed/uuid/secure"` entry.
 
@@ -32,7 +32,7 @@ Relies on `Math.random`, which means that, while faster, this mode **is not** cr
 > **Size (gzip):** 235 bytes<br>
 > **Availability:** [CommonJS](https://unpkg.com/@lukeed/uuid/secure/index.js), [ES Module](https://unpkg.com/@lukeed/uuid/secure/index.mjs), [UMD](https://unpkg.com/@lukeed/uuid/secure/index.min.js)
 
-Relies on the current environment's `crypto` module in order to produce cryptographically secure (CSPRNG) values. <br>Works in all versions of Node.js. Works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
+Relies on the environment's `crypto` module in order to produce cryptographically secure (CSPRNG) values. <br>Works in all versions of Node.js. Works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
 
 
 ## Usage
@@ -81,7 +81,7 @@ The reason why this UUID.V4 implementation is so much faster is two-fold:
 1) It composes an output with hexadecimal pairs (from a cached dictionary) instead of single characters.
 2) It allocates a larger Buffer/ArrayBuffer up front (expensive) and slices off chunks as needed (cheap).
 
-In the `secure` module, The internal ArrayBuffer is 4096 bytes, which supplies **256** `uuid.v4()` invocations. However, the default entry preallocates **256** invocations using less memory upfront.
+In the `@lukeed/uuid/secure` module, The internal ArrayBuffer is 4096 bytes, which supplies **256** `uuid.v4()` invocations. However, the default module preallocates **256** invocations using less memory upfront.
 
 A larger buffer would result in higher performance over time, but I found this to be a good balance of performance and memory space.
 
