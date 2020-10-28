@@ -1,18 +1,15 @@
 # @lukeed/uuid ![CI](https://github.com/lukeed/uuid/workflows/CI/badge.svg) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uuid)](https://codecov.io/gh/lukeed/uuid)
 
-> A tiny (230B), [fast](#benchmarks), and cryptographically secure UUID (v4) generator for Node and the browser
+> A tiny (~230B) and [fast](#benchmarks) UUID (v4) generator for Node and the browser.
 
-***Node.js***
+This module offers two [modes](#modes) for your needs:
 
-The Node.js module (235B) works in [all versions](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback) of Node.js.
+* `@lukeed/uuid`<br>_The default is "non-secure", which uses `Math.random` to produce UUIDs._
+* `@lukeed/uuid/secure`<br>_The "secure" mode produces cryptographically secure (CSPRNG) UUIDs using the current environment's `crypto` module._
 
-It is available in [ESM](https://unpkg.com/@lukeed/uuid/dist/index.mjs) and [CommonJS](https://unpkg.com/@lukeed/uuid/dist/index.js) formats, which means that both `import` and `require` syntax are supported.
+> **Important:** <br>Version `1.0.0` only offered a "secure" implementation.<br>In `v2.0.0`, this is now exported as the `"@lukeed/uuid/secure"` entry.
 
-***Browser***
-
-The browser module (239B) works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
-
-It is available in [UMD](https://unpkg.com/@lukeed/uuid) (under the `uuid` global) and [ESM](https://unpkg.com/@lukeed/uuid/dist/index.esm.js) formats. Any Rollup and webpack browser-configuration will select the correct file.
+Additionally, this module is preconfigured for native ESM support in Node.js with fallback to CommonJS. It will also work with any Rollup and webpack configuration.
 
 
 ## Install
@@ -21,11 +18,27 @@ It is available in [UMD](https://unpkg.com/@lukeed/uuid) (under the `uuid` globa
 $ npm install --save @lukeed/uuid
 ```
 
+## Modes
+
+There are two "versions" of `@lukeed/uuid` available:
+
+#### `@lukeed/uuid`
+> **Size (gzip):** 231 bytes<br>
+> **Availability:** [CommonJS](https://unpkg.com/@lukeed/uuid/dist/index.js), [ES Module](https://unpkg.com/@lukeed/uuid/dist/index.mjs), [UMD](https://unpkg.com/@lukeed/uuid/dist/index.min.js)
+
+Relies on `Math.random`, which means that, while faster, this mode **is not** cryptographically secure. <br>Works in Node.js and all browsers.
+
+#### `@lukeed/uuid/secure`
+> **Size (gzip):** 235 bytes<br>
+> **Availability:** [CommonJS](https://unpkg.com/@lukeed/uuid/secure/index.js), [ES Module](https://unpkg.com/@lukeed/uuid/secure/index.mjs), [UMD](https://unpkg.com/@lukeed/uuid/secure/index.min.js)
+
+Relies on the current environment's `crypto` module in order to produce cryptographically secure (CSPRNG) values. <br>Works in all versions of Node.js. Works in all browsers with [`crypto.getRandomValues()` support](https://caniuse.com/#feat=getrandomvalues).
+
 
 ## Usage
 
 ```js
-import uuid from '@lukeed/uuid';
+import { v4 as uuid } from '@lukeed/uuid';
 
 uuid(); //=> '400fa120-5e9f-411e-94bd-2a23f6695704'
 uuid(); //=> 'cd6ffb4d-2eda-4c84-aef5-71eb360ac8c5'
@@ -35,7 +48,7 @@ uuid(); //=> '9d20a138-56e1-481a-b8d5-dafdb79f3d2d'
 
 ## API
 
-### uuid()
+### uuid.v4()
 Returns: `string`
 
 Creates a new Version 4 (random) [RFC4122](http://www.ietf.org/rfc/rfc4122.txt) UUID.
@@ -68,7 +81,9 @@ The reason why this UUID.V4 implementation is so much faster is two-fold:
 1) It composes an output with hexadecimal pairs (from a cached dictionary) instead of single characters.
 2) It allocates a larger Buffer/ArrayBuffer up front (expensive) and slices off chunks as needed (cheap).
 
-The internal ArrayBuffer is 4096 bytes, which supplies **256** `uuid()` invocations.<br>A larger buffer would result in higher performance over time, but I found this to be a good balance of performance and memory space.
+In the `secure` module, The internal ArrayBuffer is 4096 bytes, which supplies **256** `uuid.v4()` invocations. However, the default entry preallocates **256** invocations using less memory upfront.
+
+A larger buffer would result in higher performance over time, but I found this to be a good balance of performance and memory space.
 
 ## License
 
