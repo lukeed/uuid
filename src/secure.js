@@ -6,7 +6,7 @@ for (; IDX < 256; IDX++) {
 	HEX[IDX] = (IDX + 256).toString(16).substring(1);
 }
 
-export default function () {
+export function v4() {
 	if (!BUFFER || ((IDX + 16) > SIZE)) {
 		BUFFER = random(SIZE);
 		IDX = 0;

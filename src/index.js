@@ -1,7 +1,7 @@
 var IDX=256, HEX=[], BUFFER;
 while (IDX--) HEX[IDX] = (IDX + 256).toString(16).substring(1);
 
-export default function () {
+export function v4() {
 	var i=0, num, out='';
 
 	if (!BUFFER || ((IDX + 16) > 256)) {

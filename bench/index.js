@@ -21,8 +21,8 @@ const contenders = {
 	'String.replace(Math.random)': replace_random,
 	'String.replace(crypto)': replace_crypto,
 	'uuid/v4': require('uuid').v4,
-	'@lukeed/uuid': require('../dist'),
-	'@lukeed/uuid/secure': require('../secure'),
+	'@lukeed/uuid': require('../dist').v4,
+	'@lukeed/uuid/secure': require('../secure').v4,
 };
 
 console.log('Validation: ');
