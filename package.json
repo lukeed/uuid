@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "2.0.0",
   "name": "@lukeed/uuid",
   "repository": "lukeed/uuid",
   "description": "A tiny (230B) and fast UUID (v4) generator for Node and the browser",
