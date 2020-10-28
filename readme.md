@@ -39,10 +39,13 @@ Relies on the environment's `crypto` module in order to produce cryptographicall
 
 ```js
 import { v4 as uuid } from '@lukeed/uuid';
+import { v4 as secure } from '@lukeed/uuid/secure';
 
 uuid(); //=> '400fa120-5e9f-411e-94bd-2a23f6695704'
 uuid(); //=> 'cd6ffb4d-2eda-4c84-aef5-71eb360ac8c5'
-uuid(); //=> '9d20a138-56e1-481a-b8d5-dafdb79f3d2d'
+
+secure(); //=> '8641f70e-8112-4168-9d81-d38170bfa612'
+secure(); //=> 'd175fabc-2a4d-475f-be56-29ba8104c2f2'
 ```
 
 
