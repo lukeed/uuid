@@ -24,10 +24,12 @@
   },
   "exports": {
     ".": {
+      "types": "./index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
     "./secure": {
+      "types": "./secure/index.d.ts",
       "import": "./secure/index.mjs",
       "require": "./secure/index.js"
     },
@@ -56,7 +58,7 @@
     "uid"
   ],
   "dependencies": {
-    "@lukeed/csprng": "^1.0.0"
+    "@lukeed/csprng": "^1.1.0"
   },
   "devDependencies": {
     "bundt": "1.1.1",
