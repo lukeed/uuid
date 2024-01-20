@@ -1,4 +1,4 @@
-# @lukeed/uuid ![CI](https://github.com/lukeed/uuid/workflows/CI/badge.svg) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uuid)](https://codecov.io/gh/lukeed/uuid)
+# @lukeed/uuid ![CI](https://github.com/lukeed/uuid/workflows/CI/badge.svg) [![licenses](https://licenses.dev/b/npm/%40lukeed%2Fuuid)](https://licenses.dev/npm/%40lukeed%2Fuuid) [![codecov](https://badgen.now.sh/codecov/c/github/lukeed/uuid)](https://codecov.io/gh/lukeed/uuid)
 
 > A tiny (~230B) and [fast](#benchmarks) UUID (v4) generator for Node and the browser.
 
